@@ -158,6 +158,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Images\fondo3.jpg" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\LogoVChido.jpeg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />

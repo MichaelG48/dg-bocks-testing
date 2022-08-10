@@ -34,3 +34,15 @@ C:\Users\MichaelGonzalez\Documents\UTTT\9no\repos\DgBooks\DgBooksDB\obj\Debug\Dg
 C:\Users\MichaelGonzalez\Documents\UTTT\9no\repos\DgBooks\DgBooksDB\obj\Debug\DgBooksDB.csproj.CopyComplete
 C:\Users\MichaelGonzalez\Documents\UTTT\9no\repos\DgBooks\DgBooksDB\obj\Debug\DgBooksDB.dll
 C:\Users\MichaelGonzalez\Documents\UTTT\9no\repos\DgBooks\DgBooksDB\obj\Debug\DgBooksDB.pdb
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\bin\Debug\DgBooksDB.dll.config
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\bin\Debug\DgBooksDB.dll
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\bin\Debug\DgBooksDB.pdb
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\bin\Debug\EntityFramework.dll
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\bin\Debug\EntityFramework.xml
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\obj\Debug\DgBooksDB.csproj.AssemblyReference.cache
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\obj\Debug\DgBooksDB.csproj.CoreCompileInputs.cache
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\obj\Debug\DgBooksDB.csproj.CopyComplete
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\obj\Debug\DgBooksDB.dll
+C:\Users\alex1\OneDrive\Escritorio\JSDF\dg-bocks\DgBooksDB\obj\Debug\DgBooksDB.pdb

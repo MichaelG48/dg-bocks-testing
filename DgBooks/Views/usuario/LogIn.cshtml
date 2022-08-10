@@ -20,7 +20,7 @@
         @Html.AntiForgeryToken()
 
         <div class="login-box">
-            <img src="../Images/log.png" class="avatar" alt="Avatar Image" />
+            <img src="../Images/LogoVChido.jpeg" class="avatar" alt="Avatar Image" />
             <h1>Iniciar Sesión</h1>
             <form>
 
@@ -36,6 +36,7 @@
                 <input type="submit" ID="btnAceptar" class="buttons" name="btnIs" value="Iniciar Sesión" onclick="btnAgregar_Click" />
             </form>
             <a>@Html.ActionLink("¿No tienes una cuenta? Registrate ahora", "Registrar", "Usuario")</a>
+            <a><label>@ViewBag.sms</label></a>
         </div>
     }
 
