@@ -23,12 +23,14 @@ namespace DgBooks.Controllers
         public ActionResult Index()
         {
             //setSessionProperties();
+            
             return RedirectToAction("LogIn");
         }
 
         [HttpGet]
         public ActionResult LogIn()
         {
+            ViewBag.sms = "";
             return View();
         }
 
@@ -40,8 +42,10 @@ namespace DgBooks.Controllers
                 var user = services.GetUsuarioByNameOrEmail(log.strUser_Email);
                 if(user != null)
                 {
-                    if(log.strPassword == user.strContraseña)
-                    {
+                    if (user.Status == "Activo") 
+                    { 
+                        if (log.strPassword == user.strContraseña)
+                        {
                         MySession.Current.IdUsuario = user.intIdUsuario;
                         MySession.Current.NombreUsuario = user.strNombreUsuario;
                         MySession.Current.EmailUsuario = log.strUser_Email;
@@ -52,12 +56,19 @@ namespace DgBooks.Controllers
                         //Session["EmailUsuario"] = log.strUser_Email;
                         //MySession.Current.Usuario = user;
                         return RedirectToAction("PantallaP", "Libros");
+                        }
+                        ViewBag.sms = "Contraseña incorrecta";
+                        return View();
                     }
+                    ViewBag.sms = "Su suscripcion a vencido";
+                    return View();
                 }
+                ViewBag.sms = "El usuario no existe";
                 return View();
             }
             else
             {
+                ViewBag.sms = "No dejes campos vacios";
                 return View();
             }
         }
@@ -97,7 +108,7 @@ namespace DgBooks.Controllers
                         {
                             int id = personaServices.GetUltimaPersona();
                             usuario.intIdPersona = id;
-
+                            usuario.Status = "Activo";
                             if (services.Insert(usuario))
                             {
                                 return RedirectToAction("Index");
