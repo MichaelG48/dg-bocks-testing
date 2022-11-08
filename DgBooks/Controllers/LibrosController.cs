@@ -6,6 +6,8 @@ using DgBooksDetails.DgBServices;
 using System.Web.Mvc;
 using DgBooksDB;
 using DgBooks.Models;
+using System.Net;
+using System.IO;
 
 namespace DgBooks.Controllers
 {
@@ -193,6 +195,27 @@ namespace DgBooks.Controllers
                 return RedirectToAction("ErrorPage", "Home");
             }
 
+        }
+
+        public ActionResult Descargar(int id)
+        {
+            try
+            {
+                string ruta = @"D:\DgBooks";
+                if (!Directory.Exists(ruta))
+                {
+                    Console.WriteLine("Creando el directorio: {0}", ruta);
+                    DirectoryInfo di = Directory.CreateDirectory(ruta);
+                }
+                var libro = services.GetLibroById(id);
+                WebClient mywebClient = new WebClient();
+                mywebClient.DownloadFile(libro.strLinkLibro, @"d:\DgBooks\" + libro.NombreLibro+".pdf");
+                return RedirectToAction("PantallaDetalles");
+            }
+            catch
+            {
+                return RedirectToAction("ErrorPage", "Home");
+            }
         }
 
         #region Favoritos
