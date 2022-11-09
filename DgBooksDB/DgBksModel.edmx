@@ -33,6 +33,8 @@
           <Property Name="strLinkLibro" Type="varchar" MaxLength="500" />
           <Property Name="strSinopsis" Type="varchar" MaxLength="300" />
           <Property Name="Extencion" Type="char" MaxLength="4" />
+          <Property Name="Precio MXN" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Precio USD" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
         <EntityType Name="LibroGeneros">
           <Key>
@@ -247,6 +249,11 @@
             <End Role="Persona" EntitySet="Persona" />
             <End Role="Autor" EntitySet="Autor" />
           </AssociationSet>
+          <EntitySet Name="Usuario" EntityType="DgBooksModel.Usuario" />
+          <AssociationSet Name="FK_Usuario_Persona" Association="DgBooksModel.FK_Usuario_Persona">
+            <End Role="Persona" EntitySet="Persona" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
           <EntitySet Name="Libro" EntityType="DgBooksModel.Libro" />
           <AssociationSet Name="FK_Libro_Autor" Association="DgBooksModel.FK_Libro_Autor">
             <End Role="Autor" EntitySet="Autor" />
@@ -256,48 +263,11 @@
             <End Role="Genero" EntitySet="Genero" />
             <End Role="Libro" EntitySet="Libro" />
           </AssociationSet>
-          <EntitySet Name="Usuario" EntityType="DgBooksModel.Usuario" />
-          <AssociationSet Name="FK_Usuario_Persona" Association="DgBooksModel.FK_Usuario_Persona">
-            <End Role="Persona" EntitySet="Persona" />
-            <End Role="Usuario" EntitySet="Usuario" />
-          </AssociationSet>
           <AssociationSet Name="UsuarioLibro" Association="DgBooksModel.UsuarioLibro">
             <End Role="Libro" EntitySet="Libro" />
             <End Role="Usuario" EntitySet="Usuario" />
           </AssociationSet>
         </EntityContainer>
-        <EntityType Name="Libro">
-          <Key>
-            <PropertyRef Name="intIdLibor" />
-          </Key>
-          <Property Name="intIdLibor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NombreLibro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="intIdAutor" Type="Int32" />
-          <Property Name="dtFechaPublicacion" Type="DateTime" Precision="0" />
-          <Property Name="strLinkImagenLibro" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="strLinkLibro" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="strSinopsis" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
-          <Property Name="Extencion" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
-          <NavigationProperty Name="Autor" Relationship="DgBooksModel.FK_Libro_Autor" FromRole="Libro" ToRole="Autor" />
-          <NavigationProperty Name="Genero" Relationship="DgBooksModel.LibroGeneros" FromRole="Libro" ToRole="Genero" />
-          <NavigationProperty Name="Usuario" Relationship="DgBooksModel.UsuarioLibro" FromRole="Libro" ToRole="Usuario" />
-        </EntityType>
-        <Association Name="FK_Libro_Autor">
-          <End Type="DgBooksModel.Autor" Role="Autor" Multiplicity="0..1" />
-          <End Type="DgBooksModel.Libro" Role="Libro" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Autor">
-              <PropertyRef Name="intIdAutor" />
-            </Principal>
-            <Dependent Role="Libro">
-              <PropertyRef Name="intIdAutor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="LibroGeneros">
-          <End Type="DgBooksModel.Genero" Role="Genero" Multiplicity="*" />
-          <End Type="DgBooksModel.Libro" Role="Libro" Multiplicity="*" />
-        </Association>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="intIdUsuario" />
@@ -322,6 +292,40 @@
               <PropertyRef Name="intIdPersona" />
             </Dependent>
           </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Libro">
+          <Key>
+            <PropertyRef Name="intIdLibor" />
+          </Key>
+          <Property Name="intIdLibor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreLibro" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="intIdAutor" Type="Int32" />
+          <Property Name="dtFechaPublicacion" Type="DateTime" Precision="0" />
+          <Property Name="strLinkImagenLibro" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="strLinkLibro" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="strSinopsis" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="Extencion" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+          <Property Name="Precio_MXN" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Precio_USD" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Autor" Relationship="DgBooksModel.FK_Libro_Autor" FromRole="Libro" ToRole="Autor" />
+          <NavigationProperty Name="Genero" Relationship="DgBooksModel.LibroGeneros" FromRole="Libro" ToRole="Genero" />
+          <NavigationProperty Name="Usuario" Relationship="DgBooksModel.UsuarioLibro" FromRole="Libro" ToRole="Usuario" />
+        </EntityType>
+        <Association Name="FK_Libro_Autor">
+          <End Type="DgBooksModel.Autor" Role="Autor" Multiplicity="0..1" />
+          <End Type="DgBooksModel.Libro" Role="Libro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Autor">
+              <PropertyRef Name="intIdAutor" />
+            </Principal>
+            <Dependent Role="Libro">
+              <PropertyRef Name="intIdAutor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="LibroGeneros">
+          <End Type="DgBooksModel.Genero" Role="Genero" Multiplicity="*" />
+          <End Type="DgBooksModel.Libro" Role="Libro" Multiplicity="*" />
         </Association>
         <Association Name="UsuarioLibro">
           <End Type="DgBooksModel.Libro" Role="Libro" Multiplicity="*" />
@@ -362,9 +366,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="DgBooksModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="intIdPersona" ColumnName="intIdPersona" />
+                <ScalarProperty Name="strContraseña" ColumnName="strContraseña" />
+                <ScalarProperty Name="strCorreo" ColumnName="strCorreo" />
+                <ScalarProperty Name="strNombreUsuario" ColumnName="strNombreUsuario" />
+                <ScalarProperty Name="intIdUsuario" ColumnName="intIdUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Libro">
             <EntityTypeMapping TypeName="DgBooksModel.Libro">
               <MappingFragment StoreEntitySet="Libro">
+                <ScalarProperty Name="Precio_USD" ColumnName="Precio USD" />
+                <ScalarProperty Name="Precio_MXN" ColumnName="Precio MXN" />
                 <ScalarProperty Name="Extencion" ColumnName="Extencion" />
                 <ScalarProperty Name="strSinopsis" ColumnName="strSinopsis" />
                 <ScalarProperty Name="strLinkLibro" ColumnName="strLinkLibro" />
@@ -384,18 +402,6 @@
               <ScalarProperty Name="intIdGenero" ColumnName="intIdGenero" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Usuario">
-            <EntityTypeMapping TypeName="DgBooksModel.Usuario">
-              <MappingFragment StoreEntitySet="Usuario">
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="intIdPersona" ColumnName="intIdPersona" />
-                <ScalarProperty Name="strContraseña" ColumnName="strContraseña" />
-                <ScalarProperty Name="strCorreo" ColumnName="strCorreo" />
-                <ScalarProperty Name="strNombreUsuario" ColumnName="strNombreUsuario" />
-                <ScalarProperty Name="intIdUsuario" ColumnName="intIdUsuario" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <AssociationSetMapping Name="UsuarioLibro" TypeName="DgBooksModel.UsuarioLibro" StoreEntitySet="UsuarioLibro">
             <EndProperty Name="Usuario">
               <ScalarProperty Name="intIdUsuario" ColumnName="intIdUsuario" />
