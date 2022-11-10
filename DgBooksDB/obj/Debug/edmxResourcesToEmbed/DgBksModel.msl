@@ -30,9 +30,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="DgBooksModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="intIdPersona" ColumnName="intIdPersona" />
+          <ScalarProperty Name="strContraseña" ColumnName="strContraseña" />
+          <ScalarProperty Name="strCorreo" ColumnName="strCorreo" />
+          <ScalarProperty Name="strNombreUsuario" ColumnName="strNombreUsuario" />
+          <ScalarProperty Name="intIdUsuario" ColumnName="intIdUsuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Libro">
       <EntityTypeMapping TypeName="DgBooksModel.Libro">
         <MappingFragment StoreEntitySet="Libro">
+          <ScalarProperty Name="Precio_USD" ColumnName="Precio USD" />
+          <ScalarProperty Name="Precio_MXN" ColumnName="Precio MXN" />
           <ScalarProperty Name="Extencion" ColumnName="Extencion" />
           <ScalarProperty Name="strSinopsis" ColumnName="strSinopsis" />
           <ScalarProperty Name="strLinkLibro" ColumnName="strLinkLibro" />
@@ -52,18 +66,6 @@
         <ScalarProperty Name="intIdGenero" ColumnName="intIdGenero" />
       </EndProperty>
     </AssociationSetMapping>
-    <EntitySetMapping Name="Usuario">
-      <EntityTypeMapping TypeName="DgBooksModel.Usuario">
-        <MappingFragment StoreEntitySet="Usuario">
-          <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="intIdPersona" ColumnName="intIdPersona" />
-          <ScalarProperty Name="strContraseña" ColumnName="strContraseña" />
-          <ScalarProperty Name="strCorreo" ColumnName="strCorreo" />
-          <ScalarProperty Name="strNombreUsuario" ColumnName="strNombreUsuario" />
-          <ScalarProperty Name="intIdUsuario" ColumnName="intIdUsuario" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <AssociationSetMapping Name="UsuarioLibro" TypeName="DgBooksModel.UsuarioLibro" StoreEntitySet="UsuarioLibro">
       <EndProperty Name="Usuario">
         <ScalarProperty Name="intIdUsuario" ColumnName="intIdUsuario" />
