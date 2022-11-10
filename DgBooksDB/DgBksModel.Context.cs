@@ -28,7 +28,7 @@ namespace DgBooksDB
         public virtual DbSet<Autor> Autor { get; set; }
         public virtual DbSet<Genero> Genero { get; set; }
         public virtual DbSet<Persona> Persona { get; set; }
-        public virtual DbSet<Libro> Libro { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
+        public virtual DbSet<Libro> Libro { get; set; }
     }
 }

@@ -29,6 +29,8 @@ namespace DgBooksDB
         public string strLinkLibro { get; set; }
         public string strSinopsis { get; set; }
         public string Extencion { get; set; }
+        public Nullable<decimal> Precio_MXN { get; set; }
+        public Nullable<decimal> Precio_USD { get; set; }
     
         public virtual Autor Autor { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -28,6 +28,8 @@
     <Property Name="strLinkLibro" Type="varchar" MaxLength="500" />
     <Property Name="strSinopsis" Type="varchar" MaxLength="300" />
     <Property Name="Extencion" Type="char" MaxLength="4" />
+    <Property Name="Precio MXN" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="Precio USD" Type="decimal" Precision="10" Scale="2" />
   </EntityType>
   <EntityType Name="LibroGeneros">
     <Key>
